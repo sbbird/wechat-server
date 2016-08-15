@@ -10,8 +10,6 @@ var token = 'sbbird';
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var params = req.query;
-  console.log("=======");
-  console.log(JSON.stringify(params));
   var signature = params['signature']
     , timestamp = params['timestamp']
     , nonce = params['nonce']
@@ -26,11 +24,8 @@ router.get('/', function(req, res, next) {
 function checkSignature(signature, timestamp, nonce, token) {
   var tmpArray = [token, timestamp, nonce];
   var tmpString = _.sortBy(tmpArray).join("");
-  console.log(_.sortBy(tmpArray));
   var shasum = crypto.createHash('sha1');
   var checkSum = shasum.update(tmpString).digest('hex');
-  console.log(checkSum);
-  console.log("==========");
   return checkSum === signature;
 
 }
