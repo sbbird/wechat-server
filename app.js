@@ -17,8 +17,8 @@ var app = express();
 
 var config = {
   token: 'sbbird',
-  appid: 'appid',
-  encodingAESKey: 'encodinAESKey'
+  appid: 'wx1cd6277c7c72ee8f',
+  encodingAESKey: 'Q2rGiDCetH0eN9E3afoeggSYzwdBnh1ogFtJhg8RsVk'
 };
 
 // view engine setup
