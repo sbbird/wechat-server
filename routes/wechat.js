@@ -6,6 +6,7 @@ var router = express.Router();
 var crypto = require('crypto');
 var _ = require('lodash');
 
+var xmlparser = require('express-xml-bodyparser');
 var token = 'sbbird';
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -19,6 +20,11 @@ router.get('/', function(req, res, next) {
   } else {
     res.status('500').send('invalid request');
   }
+});
+
+router.post('/', xmlparser({trim: false, explicitArray: false}), function(req, res, next){
+  console.log(req.body);
+  res.status(200).send("");
 });
 
 function checkSignature(signature, timestamp, nonce, token) {
