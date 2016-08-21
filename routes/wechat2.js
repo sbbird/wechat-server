@@ -14,6 +14,7 @@ var answers = {};
 
 module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
+  console.log(message);
   var content = message.content;
   var user = message.OpenID;
 
