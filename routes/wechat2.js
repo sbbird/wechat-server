@@ -14,10 +14,10 @@ var answers = {};
 
 module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
-
   var content = message.content;
   var user = message.OpenID;
-  if (message.match("抽奖")) {
+
+  if (content.match('抽奖')) {
     isGood(user) ? res.reply('恭喜') : res.reply('谢谢参与');
   } else {
     res.reply('hehe');
