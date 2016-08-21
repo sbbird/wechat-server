@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', xmlparser({trim: false, explicitArray: false}), function(req, res, next){
   console.log(req.body);
-  res.status(200).send("received");
+  res.status(200).send("success");
 });
 
 function checkSignature(signature, timestamp, nonce, token) {
