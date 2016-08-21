@@ -15,7 +15,7 @@ var answers = {};
 module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
   console.log(message);
-  var content = message.content;
+  var content = message.Content;
   var user = message.OpenID;
 
   if (content.match('抽奖')) {
