@@ -10,8 +10,16 @@ var js2xmlparser = require("js2xmlparser");
 
 
 var token = 'sbbird';
+var XML_OPTIONS = {
+  declaration: {
+    include: false
+  }
+};
+
 
 var answers = {};
+
+
 
 router.get('/', function (req, res, next) {
   var params = req.query;
@@ -59,12 +67,11 @@ router.post('/', xmlparser({trim: false, explicitArray: false}), function (req, 
 
 
     res.set('Content-Type', 'text/xml');
-    res.send(js2xmlparser('xml', reply))
+    res.send(js2xmlparser('xml', reply, XML_OPTIONS))
 
   } else {
     res.status(200).send("success");
   }
-  
 });
 
 
