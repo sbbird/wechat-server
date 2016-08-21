@@ -12,7 +12,7 @@ module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
   console.log(message);
   var content = message.Content;
-  var user = message.OpenID;
+  var user = message.FromUserName;
 
   if (content.match('抽奖')) {
     isGood(user) ? res.reply('恭喜') : res.reply('谢谢参与');
