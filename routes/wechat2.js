@@ -1,7 +1,3 @@
-/**
- * Created by sbbird on 8/21/16.
- */
-
 var wechat = require('wechat');
 
 var config = {
@@ -10,7 +6,7 @@ var config = {
   encodingAESKey: 'Q2rGiDCetH0eN9E3afoeggSYzwdBnh1ogFtJhg8RsVk'
 };
 
-var answers = {};
+
 
 module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
@@ -26,7 +22,7 @@ module.exports = wechat(config, function (req, res, next) {
 });
 
 function isGood(theUser) {
-  answers[theUser] = answers[theUser] || { count: 0 };
-  answers[theUser]['count']++;
-  return (answers[theUser]['count'] % 3 === 0);
+  answerdb[theUser] = answerdb[theUser] || { count: 0 };
+  answerdb[theUser]['count']++;
+  return (answerdb[theUser]['count'] % 3 === 0);
 }
