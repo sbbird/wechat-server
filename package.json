@@ -16,6 +16,7 @@
     "js2xmlparser": "^1.0.0",
     "lodash": "^4.15.0",
     "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1"
+    "serve-favicon": "~2.2.1",
+    "wechat": "^2.0.3"
   }
 }
