@@ -61,9 +61,10 @@ router.post('/', xmlparser({trim: false, explicitArray: false}), function (req, 
     res.set('Content-Type', 'text/xml');
     res.send(js2xmlparser('xml', reply))
 
+  } else {
+    res.status(200).send("success");
   }
-
-  res.status(200).send("success");
+  
 });
 
 
