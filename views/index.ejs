@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/javascripts/damoo.js"></script>
+</head>
+<body>
+<div id="dm-main">
+    <div id="dm-screen">
+        <iframe width="1440" height="900" src="https://www.youtube.com/embed/RpggNE6agKo?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<script>
+
+
+    $(window).on("load", function() {
+        var Damoo = window.Damoo;
+        var damoo = Damoo('dm-screen', 'dm-canvas', 48);
+        damoo.start();
+        damoo.emit("Damoo is awesome!");
+        damoo.emit("Damoo is super awesome");
+        damoo.emit("Damoo is super awesome");
+        damoo.emit("Damoo is super awesome");
+        damoo.emit("Damoo is super awesome");
+        damoo.emit("Damoo is super awesome");
+        damoo.emit("Damoo is super awesome");
+
+
+        var danmakuFetcher = function() {
+            $.getJSON('/danmaku/getDanmaku', function(data){
+                for( var text of data.data) {
+                    damoo.emit(text);
+                }
+                setTimeout(danmakuFetcher, 1000);
+            })
+        }
+        danmakuFetcher();
+    });
+</script>
+</body>
 </html>

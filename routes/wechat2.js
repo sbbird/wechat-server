@@ -6,23 +6,23 @@ var config = {
   encodingAESKey: 'Q2rGiDCetH0eN9E3afoeggSYzwdBnh1ogFtJhg8RsVk'
 };
 
-
-
 module.exports = wechat(config, function (req, res, next) {
   var message = req.weixin;
   console.log(message);
   var content = message.Content;
   var user = message.FromUserName;
 
-  if (content.match('抽奖')) {
-    isGood(user) ? res.reply('恭喜') : res.reply('谢谢参与');
+  if (content.match('抢答')) {
+    isFirst() ? res.reply('抢答成功, 少侠好身手 d(>_< )Good!!') : res.reply('');
   } else {
-    res.reply('hehe');
+    res.reply('T T');
   }
 });
 
-function isGood(theUser) {
-  answerdb[theUser] = answerdb[theUser] || { count: 0 };
-  answerdb[theUser]['count']++;
-  return (answerdb[theUser]['count'] % 3 === 0);
+function isFirst() {
+  if (dbstore['replied']){
+    dbstore['replied'] = false;
+    return true;
+  }
+  return false;
 }

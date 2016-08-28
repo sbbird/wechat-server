@@ -1,14 +1,6 @@
-/**
- * Created by sbbird on 8/15/16.
- */
 var express = require('express');
 var router = express.Router();
 var _ = require('lodash');
-
-
-
-var answers = {};
-
 
 
 router.get('/', function (req, res, next) {
