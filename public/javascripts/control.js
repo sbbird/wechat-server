@@ -19,7 +19,7 @@ function readyToAnswer(isRestart) {
 function startAnswer() {
   // reset wechat answer counter
   $.getJSON("/answer/reset", function (data) {
-    alert(data);
+    console.log(JSON.stringify(data));
   });
   $('#controller').text('显示答案');
   $('#controller').off('click');

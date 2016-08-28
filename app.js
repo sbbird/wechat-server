@@ -19,7 +19,7 @@ answerdb = {};
 danmakudb = [];
 // view engine setup
 dbstore = {
-  replied: true
+  replied: false
 };
 
 app.set('views', path.join(__dirname, 'views'));

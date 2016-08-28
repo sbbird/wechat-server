@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get('/reset', function (req, res, next) {
-  dbstore['isFirst'] = true;
+  dbstore['replied'] = true;
   res.json({
     status: "OK"
   });
