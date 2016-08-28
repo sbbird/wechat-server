@@ -13,9 +13,9 @@ module.exports = wechat(config, function (req, res, next) {
   var user = message.FromUserName;
 
   if (content.match('抢答')) {
-    isFirst() ? res.reply('抢答成功, 少侠好身手 d(>_< )Good!!') : res.reply('');
+    isFirst() ? res.reply('抢答成功, 少侠好身手 d(>_< )Good!!') : res.reply('T T');
   } else {
-    res.reply('T T');
+    res.reply('');
   }
 });
 
