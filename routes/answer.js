@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-router.get('/reset', function (req, res, next) {
+router.post('/reset', function (req, res, next) {
   dbstore['replied'] = true;
   res.json({
     status: "OK"

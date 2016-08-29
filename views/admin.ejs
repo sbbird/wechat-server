@@ -52,6 +52,14 @@
         <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
+                <button id="goPrev" class="btn btn-xlarge btn-outline btn-block">
+                    上一题
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
                 <button id="goNext" class="btn btn-xlarge btn-outline btn-block">
                     下一题
                 </button>
@@ -82,15 +90,19 @@
 </footer>
 <script>
 
+    $(document).ready(function () {
+        $(document).on('click touchstart', '#goPrev', function () {
+            $.post("/goPrev");
+        });
 
-    $(document).on('click touchstart', '#goNext', function() {
-        $.getJSON("/goNext");
+        $(document).on('click touchstart', '#goNext', function () {
+            $.post("/goNext");
+        });
+
+        $(document).on('click touchstart', '#restart', function () {
+            $.post("/answer/reset");
+        });
     });
-
-    $(document).on('click touchstart', '#restart', function() {
-        $.getJSON("/answer/reset");
-    });
-
 
 </script>
 

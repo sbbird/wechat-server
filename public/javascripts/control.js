@@ -85,9 +85,18 @@ $(document).ready(function () {
   var currentQuestion = 0;
   var nextMover = function () {
     $.getJSON("/shouldGoNext", function (data) {
-      if (data.shouldGoNext) {
-        $("#quiz-area-" + currentQuestion).slideUp();
-        currentQuestion++;
+      var shouldGoTo = data.currentPage;
+
+      if (currentQuestion > shouldGoTo) {
+        do {
+          currentQuestion--;
+          $('#quiz-area-' + currentQuestion).slideDown();
+        } while (currentQuestion > shouldGoTo);
+      } else if (currentQuestion < shouldGoTo) {
+        do {
+          $('#quiz-area-' + currentQuestion).slideUp();
+          currentQuestion++
+        } while (currentQuestion < shouldGoTo);
       }
       setTimeout(nextMover, 300);
     });

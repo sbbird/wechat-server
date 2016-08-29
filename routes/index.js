@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+
+
+currentPage = 0;
+
 router.get('/', function (req, res, next) {
   res.render('index', {title: 'Express'});
 });
@@ -11,6 +15,7 @@ router.get('/answers', function (req, res, next) {
 });
 
 router.get('/quiz', function (req, res){
+  currentPage = 0;
   res.render('quiz', {
     quiz: [{
       title: '下面哪一只是我们家的兔子',
@@ -31,24 +36,35 @@ router.get('/quiz', function (req, res){
         3: "健身",
         4: "跑步"
       }
+    }, {
+      title: "这是第四题"
     }]
   });
 });
 
-shouldNext = false;
+
 
 router.get('/shouldGoNext', function(req, res){
   res.json({
-    "shouldGoNext": shouldNext
+    'currentPage': currentPage
   });
-  if(shouldNext) {
-    shouldNext = false;
-  }
 });
 
-router.get('/goNext', function(req, res){
-  shouldNext = true;
-  res.json({});
+router.post('/goNext', function(req, res){
+  if (currentPage < 20)
+    currentPage++;
+  res.json({
+    currentPage: currentPage
+  });
+});
+
+router.post('/goPrev', function(req, res){
+  if (currentPage > 0)
+    currentPage--;
+
+  res.json({
+    currentPage: currentPage
+  });
 });
 
 router.get('/quiz-info', function(req, res) {
