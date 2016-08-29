@@ -11,7 +11,20 @@ router.get('/answers', function (req, res, next) {
 });
 
 router.get('/quiz', function (req, res){
-  res.render('quiz');
+  res.render('quiz', {
+    quiz: [{
+      title: '下面哪一只是我们家的兔子',
+      selections: {
+        1: '西罗比',
+        2: 'Chibidan',
+        3: 'まーぶりん',
+        4: 'ちゃーっび'
+      },
+      answer: 4
+    }, {
+      title: '哈哈哈哈哈'
+    }]
+  });
 });
 
 router.get('/quiz-info', function(req, res) {

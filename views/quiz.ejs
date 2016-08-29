@@ -22,6 +22,8 @@
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"
             integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+            integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -46,45 +48,99 @@
 
 <!-- Header -->
 <header>
-    <div class="container" id="quiz-area">
-        <!--<div class="row">-->
-        <!--<div class="col-lg-12">-->
-        <!--<div class="intro-text">-->
-        <!--<span class="name">问题1: 下面那只不是我们家的兔子</span>-->
-        <!--&lt;!&ndash;<hr class="star-light">&ndash;&gt;-->
-        <!--&lt;!&ndash;<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>&ndash;&gt;-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<hr class="star-light"/>-->
-        <!--<div class="row">-->
-        <!--<div class="col-lg-12">-->
-        <!--<p>1. 西罗比</p>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-lg-12">-->
-        <!--<p>2. chibidan</p>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-lg-12"><p>3. Maburin</p></div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-        <!--<div class="col-lg-12"><p>4. チャービ</p></div>-->
-        <!--</div>-->
-        <!--<hr class="star-light"/>-->
-        <div id="quiz-info">
 
-        </div>
+    <% for ( var i = 0; i < quiz.length; i++)  { %>
+    <% var q = quiz[i] %>
+    <div class="container" id="quiz-area-<%= i %>">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a id="controller" class="btn btn-lg btn-outline">
-                    开始回答
-                </a>
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name">问题<%= i+1 %>: <%= q.title%> </span>
+                    <% if ('selections' in q ) { %>
+                    <hr class="star-light"/>
+                        <% for ( var number in q['selections']) { %>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p><%= number %><%= q['selections'][number] %></p>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
             </div>
         </div>
     </div>
+    <% } %>
+    <!--<div class="container" id="area1">-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<div class="intro-text">-->
+                    <!--<span class="name">问题1: 下面那只不是我们家的兔子</span>-->
+                    <!--&lt;!&ndash;<hr class="star-light">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<p>1. 西罗比</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<p>2. chibidan</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12"><p>3. Maburin</p></div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12"><p>4. チャービ</p></div>-->
+        <!--</div>-->
+        <!--<hr class="star-light"/>-->
+
+        <!--&lt;!&ndash;<div id="quiz-info">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="col-lg-8 col-lg-offset-2 text-center">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a id="controller" class="btn btn-lg btn-outline">&ndash;&gt;-->
+        <!--&lt;!&ndash;开始回答&ndash;&gt;-->
+        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="container" id="area2">-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<div class="intro-text">-->
+                    <!--<span class="name">问题2: 啪啪啪啪啪</span>-->
+                    <!--&lt;!&ndash;<hr class="star-light">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<hr class="star-light"/>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<p>1. 西罗比</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12">-->
+                <!--<p>2. chibidan</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12"><p>3. Maburin</p></div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12"><p>4. チャービ</p></div>-->
+        <!--</div>-->
+        <!--<hr class="star-light"/>-->
+    <!--</div>-->
 </header>
 
 
