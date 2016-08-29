@@ -37,7 +37,7 @@
                     data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="#page-top">欢乐问答</a>
+            <a class="navbar-brand" href="#page-top">欢乐问答ADMIN</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,14 +50,23 @@
 <header>
     <div class="container">
         <div class="row">
-            <a id="goNext" class="btn btn-lg btn-outline">
-                下一题
-            </a>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <a id="goNext" class="btn btn-lg btn-outline btn-block">
+                    下一题
+                </a>
+            </div>
         </div>
         <div class="row">
-            <a id="restart" class="btn btn-lg btn-outline">
-                重新开始抢答
-            </a>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <a id="restart" class="btn btn-lg btn-outline btn-block">
+                    重新开始抢答
+                </a>
+            </div>
         </div>
     </div>
 </header>
@@ -82,13 +91,13 @@
     </div>
 </footer>
 <script>
-    $("#restart").click(function(){
+    $("#restart").click(function () {
         $.getJSON("/answer/reset", function (data) {
             console.log(JSON.stringify(data));
         });
     });
 
-    $('#goNext').click(function() {
+    $('#goNext').click(function () {
         $.getJSON("/goNext", function (data) {
             console.log(JSON.stringify(data));
         });
