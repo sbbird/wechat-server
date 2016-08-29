@@ -10,7 +10,7 @@
 <body>
 <div id="dm-main">
     <div id="dm-screen">
-        <iframe width="1440" height="900" src="https://www.youtube.com/embed/RpggNE6agKo?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <iframe width="800" height="600" src="https://www.youtube.com/embed/NlAqZvc9ylA?autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
 <script>
@@ -18,16 +18,9 @@
 
     $(window).on("load", function() {
         var Damoo = window.Damoo;
-        var damoo = Damoo('dm-screen', 'dm-canvas', 48);
+        var damoo = Damoo('dm-screen', 'dm-canvas', 24);
         damoo.start();
         damoo.emit("Damoo is awesome!");
-        damoo.emit("Damoo is super awesome");
-        damoo.emit("Damoo is super awesome");
-        damoo.emit("Damoo is super awesome");
-        damoo.emit("Damoo is super awesome");
-        damoo.emit("Damoo is super awesome");
-        damoo.emit("Damoo is super awesome");
-
 
         var danmakuFetcher = function() {
             $.getJSON('/danmaku/getDanmaku', function(data){
