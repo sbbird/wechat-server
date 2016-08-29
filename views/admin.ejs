@@ -52,9 +52,9 @@
         <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
-                <a id="goNext" class="btn btn-lg btn-outline btn-block">
+                <button id="goNext" class="btn btn-lg btn-outline btn-block">
                     下一题
-                </a>
+                </button>
             </div>
         </div>
         <div class="row">
@@ -63,9 +63,9 @@
         <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
-                <a id="restart" class="btn btn-lg btn-outline btn-block">
+                <button id="restart" class="btn btn-lg btn-outline btn-block">
                     重新开始抢答
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -91,16 +91,12 @@
     </div>
 </footer>
 <script>
-    $("#restart").click(function () {
-        $.getJSON("/answer/reset", function (data) {
-            console.log(JSON.stringify(data));
-        });
+    $(document).on('click touchstart', '#restart', function() {
+        $.getJSON("/answer/reset");
     });
 
-    $('#goNext').click(function () {
-        $.getJSON("/goNext", function (data) {
-            console.log(JSON.stringify(data));
-        });
+    $(document).on('click touchstart', '#goNext', function() {
+        $.getJSON("/goNext");
     });
 
 </script>
