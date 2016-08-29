@@ -89,7 +89,7 @@ $(document).ready(function () {
         $("#quiz-area-" + currentQuestion).slideUp();
         currentQuestion++;
       }
-      setTimeout(nextMover, 1000);
+      setTimeout(nextMover, 300);
     });
   };
   nextMover();
