@@ -77,6 +77,19 @@ function renderQuizInfo(data) {
   console.log(quizHTML.join(''));
 }
 
-$('#controller').click(start);
+//$('#controller').click(start);
 //});
+
+var currentQuestion = 0;
+var nextMover = function () {
+  $.getJSON("/shouldGoNext", function (data) {
+    if (data.shouldGoNext) {
+      $("#quiz-area-" + currentQuestion).slideUp();
+      currentQuestion++;
+    }
+    setTimeout(nextMover, 1000);
+  });
+};
+nextMover();
+
 
