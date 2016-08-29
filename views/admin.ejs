@@ -92,13 +92,12 @@
 </footer>
 <script>
 
+    
     $(document).on('click touchstart', '#goNext', function() {
-        alert("touched gonext");
         $.getJSON("/goNext");
     });
 
     $(document).on('click touchstart', '#restart', function() {
-        alert("touched restart");
         $.getJSON("/answer/reset");
     });
 
