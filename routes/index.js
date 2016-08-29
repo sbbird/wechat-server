@@ -64,4 +64,8 @@ router.get('/quiz-info', function(req, res) {
   })
 });
 
+router.get('/adminsbbird', function(req, res){
+  res.render('admin');
+});
+
 module.exports = router;
