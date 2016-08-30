@@ -16,7 +16,7 @@ var app = express();
 
 // global variable
 answerdb = {};
-danmakudb = [];
+danmakudb = ['测试弹幕'];
 // view engine setup
 dbstore = {
   replied: false

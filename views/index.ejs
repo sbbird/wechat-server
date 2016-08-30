@@ -20,14 +20,14 @@
         var Damoo = window.Damoo;
         var damoo = Damoo('dm-screen', 'dm-canvas', 24);
         damoo.start();
-        damoo.emit("Damoo is awesome!");
+        damoo.emit("");
 
         var danmakuFetcher = function() {
             $.getJSON('/danmaku/getDanmaku', function(data){
                 for( var text of data.data) {
                     damoo.emit(text);
                 }
-                setTimeout(danmakuFetcher, 1000);
+                setTimeout(danmakuFetcher, 500);
             })
         }
         danmakuFetcher();
