@@ -90,46 +90,6 @@
     var questionNum = <%= quiz.length %>;
 </script>
 <script src="/javascripts/control.js"></script>
-<script>
-    $(window).on("load", function() {
-        var Damoo = window.Damoo;
-        var damoo = Damoo('dm-screen', 'dm-canvas', 24);
-        damoo.start();
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-        damoo.emit("yes");
-
-
-
-        var danmakuFetcher = function() {
-            $.getJSON('/danmaku/getDanmaku', function(data){
-                for( var text of data.data) {
-                    damoo.emit(text);
-                }
-                setTimeout(danmakuFetcher, 500);
-            })
-        }
-        danmakuFetcher();
-    });
-</script>
+<script type="text/javascript" src="/javascripts/initialDamoo.js"></script>
 </body>
 </html>
