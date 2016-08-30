@@ -10,6 +10,10 @@ router.get('/', function (req, res, next) {
   res.render('index', {title: 'Express'});
 });
 
+router.get('/photo', function (req, res, next) {
+  res.render('photo', {title: 'Express'});
+});
+
 router.get('/answers', function (req, res, next) {
   res.send(JSON.stringify(answerdb));
 });
