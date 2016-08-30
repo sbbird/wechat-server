@@ -13,6 +13,32 @@ $(window).on("load", function() {
     damoo.emit({text: "test color", color: color})
   }
 
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  colorEmit("yes");
+  
+
   var danmakuFetcher = function() {
     $.getJSON('/danmaku/getDanmaku', function(data){
       for(var text of data.data) {
