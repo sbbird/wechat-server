@@ -98,7 +98,7 @@ $(document).ready(function () {
           currentQuestion++
         } while (currentQuestion < shouldGoTo);
       }
-      setTimeout(nextMover, 300);
+      setTimeout(nextMover, 1000);
     });
   };
   nextMover();
