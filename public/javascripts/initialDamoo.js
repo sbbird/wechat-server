@@ -36,7 +36,7 @@ $(window).on("load", function() {
   colorEmit("yes");
   colorEmit("yes");
   colorEmit("yes");
-  colorEmit("yes");g
+  colorEmit("yes");
 
   var danmakuFetcher = function() {
     $.getJSON('/danmaku/getDanmaku', function(data){
