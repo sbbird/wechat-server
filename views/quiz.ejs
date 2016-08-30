@@ -24,52 +24,57 @@
             integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
             integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/javascripts/damoo.js"></script>
 
 </head>
 <body>
+<div id="dm-main">
+    <div id="dm-screen" width="800" height="600">
 
-<!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="#page-top">欢乐问答</a>
-        </div>
-    </div>
-</nav>
 
-<!-- Header -->
-<header>
+        <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">欢乐问答</a>
+                </div>
+            </div>
+        </nav>
 
-    <% for ( var i = 0; i < quiz.length; i++)  { %>
-    <% var q = quiz[i] %>
-    <div class="container" id="quiz-area-<%= i %>">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-text">
-                    <span class="name">问题<%= i+1 %>: <%= q.title%> </span>
-                    <% if ('selections' in q ) { %>
-                    <hr class="star-light"/>
-                        <% for ( var number in q['selections']) { %>
+        <!-- Header -->
+        <header>
+
+            <% for ( var i = 0; i < quiz.length; i++)  { %>
+            <% var q = quiz[i] %>
+            <div class="container" id="quiz-area-<%= i %>">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-text">
+                            <span class="name">问题<%= i + 1 %>: <%= q.title %> </span>
+                            <% if ('selections' in q ) { %>
+                            <hr class="star-light"/>
+                            <% for ( var number in q['selections']) { %>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <p><%= number %>. <%= q['selections'][number] %></p>
                                 </div>
                             </div>
-                        <% } %>
-                    <% } %>
+                            <% } %>
+                            <% } %>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <% } %>
+
+        </header>
     </div>
-    <% } %>
-
-</header>
-
+</div>
 <footer class="text-center">
     <div class="footer-below">
         <div class="container">
@@ -85,6 +90,46 @@
     var questionNum = <%= quiz.length %>;
 </script>
 <script src="/javascripts/control.js"></script>
+<script>
+    $(window).on("load", function() {
+        var Damoo = window.Damoo;
+        var damoo = Damoo('dm-screen', 'dm-canvas', 24);
+        damoo.start();
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
+        damoo.emit("yes");
 
+
+
+        var danmakuFetcher = function() {
+            $.getJSON('/danmaku/getDanmaku', function(data){
+                for( var text of data.data) {
+                    damoo.emit(text);
+                }
+                setTimeout(danmakuFetcher, 500);
+            })
+        }
+        danmakuFetcher();
+    });
+</script>
 </body>
 </html>

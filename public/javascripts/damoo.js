@@ -134,8 +134,8 @@
     this.parent = m.nodeType == 1 ? m : Damoo.dom.getElementById(m);
     this.id = n;
     this.rows = r;
-    this.width = this.parent.offsetWidth;
-    this.height = this.parent.offsetHeight;
+    this.width = 800;
+    this.height = 600;
     if (this.height / this.rows < 12) {
       this.rows = this.height / 12;
     }
