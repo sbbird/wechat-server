@@ -117,7 +117,7 @@ router.get('/shouldGoNext', function(req, res){
 });
 
 router.post('/goNext', function(req, res){
-  if (currentPage < 20)
+  if (currentPage < 17)
     currentPage++;
   res.json({
     currentPage: currentPage

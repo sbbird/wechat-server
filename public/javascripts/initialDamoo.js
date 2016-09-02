@@ -9,10 +9,6 @@ $(window).on("load", function () {
     damoo.emit({text: string, color: color});
   };
 
-  for (var color of colors) {
-    damoo.emit({text: "test color", color: color})
-  }
-
   var danmakuFetcher = function () {
     $.getJSON('/danmaku/getDanmaku', function (data) {
       for (var text of data.data) {
