@@ -99,7 +99,7 @@ router.get('/quiz', function (req, res){
       selections: {
         1: '鸟哥哥',
         2: '博尔特',
-        3: '女仆姐姐',
+        3: '哆啦A梦',
         4: '香港记者'
       }
     }, {

@@ -13,7 +13,7 @@ module.exports = wechat(config, function (req, res, next) {
   var user = message.FromUserName;
 
   if (content === '抢答') {
-    isFirst() ? res.reply('抢答成功, 少侠好身手 d(>_< )Good!!') : res.reply('T T');
+    isFirst() ? res.reply('抢答成功, 少侠好身手 d(>_< )Good!!') : res.reply('被人抢先了 T T');
   } else {
     danmakudb.push(content);
     res.reply('');
