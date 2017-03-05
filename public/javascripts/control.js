@@ -101,7 +101,7 @@ $(document).ready(function () {
       setTimeout(nextMover, 1000);
     });
   };
-  nextMover();
+  //nextMover();
 });
 
 

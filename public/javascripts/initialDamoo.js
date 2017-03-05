@@ -17,5 +17,5 @@ $(window).on("load", function () {
       setTimeout(danmakuFetcher, 500);
     })
   };
-  danmakuFetcher();
+  //danmakuFetcher();
 });

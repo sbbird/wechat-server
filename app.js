@@ -9,7 +9,7 @@ var wechat = require('wechat');
 var index = require('./routes/index');
 var wechat2route = require('./routes/wechat2');
 var danmakuroute = require('./routes/danmaku');
-var answer = require('./routes/answer')
+var answer = require('./routes/answer');
 
 var app = express();
 
@@ -22,6 +22,8 @@ dbstore = {
   replied: false
 };
 
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('trust proxy', true);
@@ -31,7 +33,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.session({secret: 'keyboard cat', cookie: {maxAge: 60000}}));
 app.use('/', index);
 app.use('/wechat2', wechat2route);
 app.use('/danmaku', danmakuroute);
