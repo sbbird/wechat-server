@@ -8,6 +8,7 @@ var wechat = require('wechat');
 
 var index = require('./routes/index');
 var wechat2route = require('./routes/wechat2');
+var lineroute = require('./routes/line.js');
 var danmakuroute = require('./routes/danmaku');
 var answer = require('./routes/answer')
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/wechat2', wechat2route);
+app.post('/line', lineroute);
 app.use('/danmaku', danmakuroute);
 app.use('/answer', answer);
 
